@@ -20,7 +20,7 @@ contract FairShareFund {
     }
 
     org[] orgs;
-    mapping(address => bool) private members;
+    mapping(address => bool) public members;
     mapping(address => address[]) public orgToFunders;
     mapping(address => mapping(address => uint256)) public orgToFunderToAmount;
     mapping(address => uint256) public orgToQF;
