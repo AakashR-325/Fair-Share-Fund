@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 
 contract FairShareFund {
     address owner;
+    uint256 count;
 
     constructor() {
         owner = msg.sender;
@@ -14,6 +15,7 @@ contract FairShareFund {
     uint256 public fundingPeriod = 86400;
 
     struct org {
+        uint256 id;
         string name;
         string description;
         address orgAddress;
@@ -56,7 +58,8 @@ contract FairShareFund {
         string memory _name,
         string memory _desc
     ) external {
-        orgs.push(org(_name, _desc, _org));
+        orgs.push(org(count, _name, _desc, _org));
+        count++;
     }
 
     function becomeMember() external payable notMember {
