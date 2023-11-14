@@ -1,5 +1,3 @@
 import React, { useState } from "react";
 
-export default function Contibute() {
-  return a;
-}
+export default function Contibute({ contract, provider }) {}

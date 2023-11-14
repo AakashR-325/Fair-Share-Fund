@@ -21,7 +21,7 @@ contract FairShareFund {
         address orgAddress;
     }
 
-    org[] orgs;
+    org[] public orgs;
     mapping(address => bool) public members;
     mapping(address => address[]) public orgToFunders;
     mapping(address => mapping(address => uint256)) public orgToFunderToAmount;
@@ -89,5 +89,9 @@ contract FairShareFund {
             (bool sent, ) = addr.call{value: amount}("");
             require(sent, "call to send ETH failed");
         }
+    }
+
+    function getOrgs() external view returns (org[] memory) {
+        return orgs;
     }
 }
